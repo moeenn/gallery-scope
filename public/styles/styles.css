@@ -1,0 +1,53 @@
+#layout {
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 8.5rem auto;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+    "inputs"
+    "images";
+}
+
+#layout #inputs {
+  grid-area: inputs;
+}
+
+#layout #images {
+  grid-area: images;
+  overflow-y: auto;
+  background-color: hsla(var(--bg-dull), 0.5);
+}
+
+#images img {
+  border-radius: var(--border-radius);
+  height: calc(var(--space) * 10);
+  width: 100%;
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+}
+
+.pb-1\/2 {
+  padding-bottom: calc(var(--space) / 2);
+}
+
+.secondary-inputs input {
+  width: 5rem;
+}
+
+button {
+	border: none;
+}
+
+button:hover {
+  background-color: hsla(var(--bg-dull), 0.4);
+}
+
+:is(button, input, textarea, select) {
+	background-color: hsla(var(--bg-dull), 0.3);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: var(--space);
+}

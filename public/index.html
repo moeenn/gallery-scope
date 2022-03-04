@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/styles/wireframe.css">
+  <link rel="stylesheet" href="/public/styles/styles.css">
+  <script src="/public/scripts/main.js"></script>
+  <title>Gallery Scope</title>
+</head>
+
+<body>
+  <div id="layout" class="grid">
+    <section id="inputs" class="border-b">
+      <div class="container py-1">
+        <div class="pb-1/2">
+          <input name="base" type="text" placeholder="Base" class="w-full" />
+        </div>
+
+        <div class="flex justify-between">
+          <div class="secondary-inputs">
+            <input title="Start" name="start" type="number" min="0" placeholder="Start" value="1" />
+            <input title="End" name="end" type="number" min="0" placeholder="End" value="12" />
+            <input title="Zeros" name="zero" type="number" min="0" placeholder="Zeros" value="0" />
+          </div>
+
+          <div>
+            <button onClick="app.thumbs.clear()" title="Clear" class="inline-flex"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" class="m-auto">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg></button>
+            <button onClick="app.form.search()" title="Search" class="inline-flex"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" class="m-auto">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg></button>
+            <button onClick="app.form.download()" title="Download" class="inline-flex"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" class="m-auto">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="images">
+      <div class="container py-1 gallery">
+      </div>
+    </section>
+  </div>
+</body>
+
+<template id="thumbnail">
+  <a href="/public/img/sample.png" target="_blank">
+    <img src="/public/img/sample.png" alt="thumb" />
+  </a>
+</template>
+
+</html>

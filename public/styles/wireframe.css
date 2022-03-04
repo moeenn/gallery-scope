@@ -1,0 +1,316 @@
+:root {
+  --font-size: 0.925rem;
+
+  --bg-normal: 0, 0%, 100%;
+  --bg-dull: 0, 0%, 91%;
+  --bg-dark: 210, 29%, 20%;
+  
+  --font-color-normal: 210, 6%, 13%;
+  --font-color-dull: 203, 9%, 50%;
+  --font-color-dark: 204, 3%, 10%;
+
+  --border-width: calc(var(--font-size) / 10); 
+  --border: var(--border-width) solid hsla(var(--bg-dull), var(--alpha, 1));
+  --border-radius: 0.25rem;
+
+  --accent-color: 192, 100%, 31%;
+
+  --shadow-sm: 0 2px 4px -1px hsla(214, 53%, 23%, 0.07), 
+    0 3px 12px -1px hsla(214, 50%, 22%, 0.14);
+  --shadow: 0 4px 24px -3px hsla(214, 53%, 23%, 0.07), 
+    0 18px 64px -8px hsla(214, 47%, 21%, 0.14); 
+  --shadow-lg:  0 6px 48px -5px hsla(214, 53%, 23%, 0.07), 
+    0 36px 128px -15px hsla(214, 47%, 21%, 0.14);
+
+  --space: 1.2rem;
+  --container-width: 87vw;
+}
+
+:is(*, ::before, ::after) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  font-weight: normal;
+  font-size: var(--font-size);
+}
+
+:is(html, body) {
+	height: 100vh;
+	width: 100vw;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif,
+	'Apple Color Emoji', 'Segoe UI Emoji';
+  color: rgba(var(--font-color-normal), var(--alpha, 1));
+  line-height: calc(var(--font-size) * 1.5);
+}
+
+.container {
+  width: min(95%, var(--container-width));
+	margin-inline: auto;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-family: serif;
+  margin-bottom: calc(var(--space) * 0.75);
+  letter-spacing: calc(var(--font-size) / 46);
+  line-height: calc(var(--size, var(--font-size)) + 0.4rem); 
+}
+
+h1 {
+  --size: calc(var(--font-size) * 3);
+  font-size: var(--size);
+}
+
+h2 {
+  --size: calc(var(--font-size) * 2.4);
+  font-size: var(--size);
+}
+
+h3 {
+  --size: calc(var(--font-size) * 2.2);
+  font-size: var(--size);
+}
+
+h4 {
+  --size: calc(var(--font-size) * 1.9);
+  font-size: var(--size);
+}
+
+h5 {
+  --size: calc(var(--font-size) * 1.6);
+  font-size: var(--size);
+}
+
+h6 {
+  --size: calc(var(--font-size) * 1.4);
+  font-size: var(--size);
+}
+
+p {
+  margin-bottom: var(--space);
+  letter-spacing: calc(var(--font-size) / 45);
+}
+
+:is(button, input, textarea, select) {
+  font-size: calc(var(--font-size) * 0.9);
+  border: var(--border);
+  padding: calc(var(--space) / 1.5);
+  border-radius: var(--border-radius);
+}
+
+:is(input, textarea)::placeholder {
+  font-size: calc(var(--font-size) * 0.9);
+  color: hsl(var(--font-color-dull));
+}
+
+:is(button, input[type='submit']) {
+  background-color: hsla(var(--bg-normal), var(--alpha, 1));
+  padding: calc(var(--space) / 1.5) var(--space);
+  cursor: pointer;
+}
+
+:is(button, input[type='submit']).primary {
+  background-color: hsla(var(--accent-color), var(--alpha, 1));
+  font-weight: bold;
+  color: hsla(var(--bg-normal), var(--alpha, 1));
+}
+
+fieldset :is(input, textarea, select) {
+  display: block;
+  width: 100%;
+  background-color: hsla(var(--bg-dull), var(--alpha, 0.5)); 
+}
+
+hr {
+  border-bottom: var(--border);
+  margin: var(--space) 0;
+}
+
+a {
+  color: hsla(var(--accent-color), var(--alpha, 1));
+  text-decoration: none;
+}
+
+code pre {
+  font-family: system-ui;
+  background-color: hsla(var(--bg-dull), var(--alpha, 1));
+  padding: var(--space);
+  border-radius: var(--border-radius);
+}
+
+:is(mark, em) {
+  font-style: normal;
+  background: hsl(var(--bg-dull), var(--alpha, 0.8));
+  padding: calc(var(--space) * 0.15) calc(var(--space) * 0.33);
+  border-radius: var(--border-radius);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table :is(th, td) {
+  text-align: left;
+  padding: calc(var(--space) / 2);
+}
+
+table th {
+  color: hsl(var(--font-color-dull));
+  font-weight: bold;
+}
+
+table tbody tr:hover {
+  background-color: hsl(var(--bg-dull), var(--alpha, 0.35));
+}
+
+
+/**
+ * ----------------------------------------------------------------------------
+ *
+ *  utility classes
+ *
+ * ---------------------------------------------------------------------------- 
+ */
+
+
+/**
+ *  background utilities
+ *
+ */
+.bg-normal { background-color: hsla(var(--bg-normal), var(--alpha, 1) ); }
+.bg-dull { background-color: hsla(var(--bg-dull), var(--alpha, 1) ); }
+.bg-dark { background-color: hsla(var(--bg-dark), var(--alpha, 1) ); }
+.bg-accent { background-color: hsla(var(--accent-color), var(--alpha, 1) ); }
+
+
+/**
+ *  font utilities
+ * 
+ */
+.fg-normal { color: hsla(var(--font-color-normal), var(--alpha, 1)); }
+.fg-dull { color: hsla(var(--font-color-dull), var(--alpha, 1)); }
+.fg-dark { color: hsla(var(--font-color-dark), var(--alpha, 1)); }
+.fg-bold { font-weight: bold; }
+
+
+/**
+ *  border utilities
+ *
+ */
+.border { border: var(--border); }
+.border-b { border-bottom: var(--border); }
+.border-t { border-top: var(--border); }
+.border-l { border-left: var(--border); }
+.border-r { border-right: var(--border); }
+.rounded { border-radius: var(--border-radius); }
+
+/**
+ *  shadow utilities
+ *
+ */
+.shadow { box-shadow: var(--shadow); }
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+ 
+
+/**
+ *  cursor utilities
+ *
+ */
+.cursor-normal { cursor: unset; }
+.cursor-pointer { cursor: pointer; }
+
+
+/**
+ *  spaceing related classes 
+ *
+ */
+.m-0 { margin: 0; }
+.m-1 { margin: var(--space); }
+.m-2 { margin: calc(var(--space) * 2); }
+.m-3 { margin: calc(var(--space) * 3); }
+.m-4 { margin: calc(var(--space) * 4); }
+.m-5 { margin: calc(var(--space) * 5); }
+
+.p-0 { padding: 0; }
+.p-1 { padding: var(--space); }
+.p-2 { padding: calc(var(--space) * 2); }
+.p-3 { padding: calc(var(--space) * 3); }
+.p-4 { padding: calc(var(--space) * 4); }
+.p-5 { padding: calc(var(--space) * 5); }
+
+.mx-0 { margin-left: 0; margin-right: 0; }
+.mx-1 { margin-left: var(--space); margin-right: var(--space); }
+.mx-2 { margin-left: calc(var(--space) * 2); margin-right: calc(var(--space) * 2); }
+.mx-3 { margin-left: calc(var(--space) * 3); margin-right: calc(var(--space) * 3); }
+.mx-4 { margin-left: calc(var(--space) * 4); margin-right: calc(var(--space) * 4); }
+.mx-5 { margin-left: calc(var(--space) * 5); margin-right: calc(var(--space) * 5); }
+
+.px-0 { padding-left: 0; padding-right: 0; }
+.px-1 { padding-left: var(--space); padding-right: var(--space); }
+.px-2 { padding-left: calc(var(--space) * 2); padding-right: calc(var(--space) * 2); }
+.px-3 { padding-left: calc(var(--space) * 3); padding-right: calc(var(--space) * 3); }
+.px-4 { padding-left: calc(var(--space) * 4); padding-right: calc(var(--space) * 4); }
+.px-5 { padding-left: calc(var(--space) * 5); padding-right: calc(var(--space) * 5); }
+
+.my-0 { margin-top: 0; margin-bottom: 0; }
+.my-1 { margin-top: var(--space); margin-bottom: var(--space); }
+.my-2 { margin-top: calc(var(--space) * 2); margin-bottom: calc(var(--space) * 2); }
+.my-3 { margin-top: calc(var(--space) * 3); margin-bottom: calc(var(--space) * 3); }
+.my-4 { margin-top: calc(var(--space) * 4); margin-bottom: calc(var(--space) * 4); }
+.my-5 { margin-top: calc(var(--space) * 5); margin-bottom: calc(var(--space) * 5); }
+
+.py-0 { padding-top: 0; padding-bottom: 0; }
+.py-1 { padding-top: var(--space); padding-bottom: var(--space); }
+.py-2 { padding-top: calc(var(--space) * 2); padding-bottom: calc(var(--space) * 2); }
+.py-3 { padding-top: calc(var(--space) * 3); padding-bottom: calc(var(--space) * 3); }
+.py-4 { padding-top: calc(var(--space) * 4); padding-bottom: calc(var(--space) * 4); }
+.py-5 { padding-top: calc(var(--space) * 5); padding-bottom: calc(var(--space) * 5); }
+
+.m-auto { margin: auto; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.my-auto { margin-top: auto; margin-bottom: auto; }
+
+
+/**
+ *  display utilities
+ *
+ */
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+.grid { display: grid; }
+.relative { display: relative; }
+.absolute { display: absolute; }
+.hidden { display: none; }
+
+
+/**
+ *  size related utilities
+ *
+ */
+.h-full { height: 100%; }
+.w-screen { width: 100vw; }
+.h-screen { height: 100vh; }
+.w-full { width: 100%; }
+
+
+/**
+ *  flexbox utilities
+ *
+ */
+.flex-row { flex-direction: row; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+.justify-between { justify-content: space-between; }
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+.flex-3 { flex: 3; }
+.flex-4 { flex: 4; }
+.flex-5 { flex: 5; }
