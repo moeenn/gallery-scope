@@ -20,8 +20,7 @@ const API = {
       throw new Error("Request failed")
     }
 
-    const data = await res.json()
-    return data
+    return await res.json()
   },
 
   async post(URL, form) {
