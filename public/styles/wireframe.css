@@ -5,7 +5,7 @@
   --bg-dull: 0, 0%, 91%;
   --bg-dark: 210, 29%, 20%;
   
-  --font-color-normal: 210, 6%, 13%;
+  --font-color-normal: 210, 6%, 30%;
   --font-color-dull: 203, 9%, 50%;
   --font-color-dark: 204, 3%, 10%;
 
@@ -45,7 +45,6 @@ body {
 	'Apple Color Emoji', 'Segoe UI Emoji';
   color: rgb(var(--font-color-normal));
   line-height: calc(var(--font-size) * 1.5);
-  letter-spacing: calc(var(--font-size) / 13);
 }
 
 .container {
@@ -92,6 +91,7 @@ h6 {
 
 p {
   margin-bottom: var(--space);
+	letter-spacing: calc(var(--font-size) / 45);
 }
 
 :is(button, input, textarea, select) {
@@ -99,6 +99,10 @@ p {
   border: var(--border);
   padding: calc(var(--space) / 1.5);
   border-radius: var(--border-radius);
+}
+
+:is(input, textarea) {
+	letter-spacing: calc(var(--font-size) / 15);
 }
 
 :is(input, textarea)::placeholder {
@@ -122,6 +126,7 @@ fieldset :is(input, textarea, select) {
   display: block;
   width: 100%;
   background-color: hsla(var(--bg-dull), var(--alpha, 0.5)); 
+	font-size: calc(var(--font-size) * 1.04);
 }
 
 hr {

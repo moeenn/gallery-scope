@@ -34,14 +34,17 @@
   width: 5rem;
 }
 
+#actions {
+	gap: 0.1rem;
+}
+
 button {
 	border: none;
   padding: calc(var(--space) * 0.8) !important;
-  border-radius: 100%;
 }
 
 button:hover {
-  background-color: hsla(var(--bg-dull), 0.7);
+  background-color: hsla(var(--bg-dull), 0.5);
 }
 
 :is(button, input, textarea, select) {
