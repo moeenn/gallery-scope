@@ -16,9 +16,10 @@ func New() *gin.Engine {
 	}
 
 	// resource api endpoints
+	api := r.Group("/api")
 	{
-		r.POST("/api/urls", handlers.GenerateURLs)
-		r.POST("/api/download", handlers.DownloadGallery)
+		api.POST("/urls", handlers.GenerateURLs)
+		api.POST("/download", handlers.DownloadGallery)
 	}
 
 	return r

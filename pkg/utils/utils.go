@@ -48,7 +48,7 @@ func RandomStr(length int) (string, error) {
  *  this function replaces the placeholder with the actual count
  */
 func InsertCount(url, count string) string {
-	return strings.Replace(url, "{n}", count, -1)
+	return strings.Replace(url, "{}", count, -1)
 }
 
 /**
@@ -56,14 +56,6 @@ func InsertCount(url, count string) string {
  */
 func URLEncode(s string) string {
 	return url.QueryEscape(s)
-}
-
-/**
- *  extract filename from URL
- */
-func ExtractURLFilename(url string) string {
-	pieces := strings.Split(url, "/")
-	return pieces[len(pieces)-1]
 }
 
 /**
