@@ -31,6 +31,22 @@ const API = {
   }
 }
 
+const notification = {
+  show(text) {
+    const [n] = select("#notification")
+
+    n.querySelector("span").innerHTML = text
+    n.classList.remove("hidden")
+
+    setTimeout(this.hide, 5000)
+  },
+
+  hide() {
+    const [n] = select("#notification")
+    n.classList.add("hidden")
+  }
+}
+
 const form = {
   getForm() {
     const inputs = select("input")
@@ -44,6 +60,13 @@ const form = {
     }
 
     return result
+  },
+
+  clear() {
+    const [base] = select("input")
+    base.value = ""
+
+    thumbs.clear()
   },
 
   async search() {
@@ -61,6 +84,7 @@ const form = {
   async download() {
     const form = this.getForm()
     await API.post("/api/download", form)
+    notification.show("Starting downloads")
   },
 }
 

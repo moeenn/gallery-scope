@@ -2,13 +2,21 @@ BINARY = ./bin/gallery-scope
 SRC = ./*/**.go
 
 build:
-	go build -o ${BINARY} ${SRC}
+	@echo "Running Tests..."
+	@go test ./...
+	@go build -o ${BINARY} ${SRC}
+	@echo "\nBinary compiled successfully!"
 
-run:
+
+dev:
 	go run ${SRC}
+
+start:
+	${BINARY}
 
 test:
 	go test ./...
 
 clean:
 	rm ${BINARY}
+	@echo "Build files cleaned"

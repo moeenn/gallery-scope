@@ -48,5 +48,7 @@ func DownloadGallery(c *gin.Context) {
 		return
 	}
 
-	c.Writer.WriteHeader(http.StatusOK)
+	c.JSON(http.StatusOK, gin.H{
+		"message": "The gallery will be downloaded",
+	})
 }

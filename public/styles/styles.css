@@ -15,7 +15,7 @@
 #layout #images {
   grid-area: images;
   overflow-y: auto;
-  background-color: hsla(var(--bg-dull), 0.5);
+  background-color: hsla(var(--bg-dull), 0.7);
 }
 
 #images img {
@@ -36,10 +36,12 @@
 
 button {
 	border: none;
+  padding: calc(var(--space) * 0.8) !important;
+  border-radius: 100%;
 }
 
 button:hover {
-  background-color: hsla(var(--bg-dull), 0.4);
+  background-color: hsla(var(--bg-dull), 0.7);
 }
 
 :is(button, input, textarea, select) {
@@ -50,4 +52,19 @@ button:hover {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   gap: var(--space);
+}
+
+.gallery a {
+  background-color: hsla(var(--bg-dark), 0.1);
+}
+
+#notification {
+  position: fixed;
+  bottom: var(--space);
+  left:  var(--space);
+  background-color: hsl(var(--bg-dark));
+  color: white;
+  padding: calc(var(--space) * 0.8);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
 }

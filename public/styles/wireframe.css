@@ -23,7 +23,7 @@
     0 36px 128px -15px hsla(214, 47%, 21%, 0.14);
 
   --space: 1.2rem;
-  --container-width: 87vw;
+  --container-width: 98vw;
 }
 
 :is(*, ::before, ::after) {
@@ -43,8 +43,9 @@
 body {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif,
 	'Apple Color Emoji', 'Segoe UI Emoji';
-  color: rgba(var(--font-color-normal), var(--alpha, 1));
+  color: rgb(var(--font-color-normal));
   line-height: calc(var(--font-size) * 1.5);
+  letter-spacing: calc(var(--font-size) / 13);
 }
 
 .container {
@@ -91,7 +92,6 @@ h6 {
 
 p {
   margin-bottom: var(--space);
-  letter-spacing: calc(var(--font-size) / 45);
 }
 
 :is(button, input, textarea, select) {
