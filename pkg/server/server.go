@@ -7,6 +7,7 @@ import (
 
 func New() *gin.Engine {
 	r := gin.Default()
+	r.SetTrustedProxies([]string{"127.0.0.1"})
 
 	// server static files
 	{

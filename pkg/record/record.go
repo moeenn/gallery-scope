@@ -6,9 +6,9 @@ import (
 )
 
 type Record struct {
-	Base  string `json:"base"`
+	Base  string `json:"base" binding:"required"`
 	Start int    `json:"start"`
-	End   int    `json:"end"`
+	End   int    `json:"end" binding:"required"`
 	Zero  int    `json:"zero"`
 }
 

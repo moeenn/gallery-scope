@@ -7,5 +7,8 @@ build:
 run:
 	go run ${SRC}
 
+test:
+	go test ./...
+
 clean:
 	rm ${BINARY}

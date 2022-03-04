@@ -44,12 +44,12 @@ func TestInsertCount(t *testing.T) {
 		URL, Count, Expected string
 	}{
 		{
-			URL:      "https://www.google.com/123123/12313_{n}.jpg",
+			URL:      "https://www.google.com/123123/12313_{}.jpg",
 			Count:    "10",
 			Expected: "https://www.google.com/123123/12313_10.jpg",
 		},
 		{
-			URL:      "https://www.google.com/123123-{n}/12313_{n}.jpg",
+			URL:      "https://www.google.com/123123-{}/12313_{}.jpg",
 			Count:    "007",
 			Expected: "https://www.google.com/123123-007/12313_007.jpg",
 		},

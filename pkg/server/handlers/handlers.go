@@ -4,13 +4,14 @@ import (
 	"gallery-scope/pkg/actions"
 	"gallery-scope/pkg/record"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 func GenerateURLs(c *gin.Context) {
 	var body record.Record
 
 	if err := c.BindJSON(&body); err != nil {
-		c.JSON(400, gin.H{
+		c.JSON(http.StatusBadRequest, gin.H{
 			"message": "Invalid request body",
 		})
 		return
@@ -18,21 +19,21 @@ func GenerateURLs(c *gin.Context) {
 
 	urls, err := actions.GeneratePreviewURLs(body)
 	if err != nil {
-		c.JSON(400, gin.H{
+		c.JSON(http.StatusBadRequest, gin.H{
 			"message": "Failed to process request",
 			"details": err,
 		})
 		return
 	}
 
-	c.JSON(200, urls)
+	c.JSON(http.StatusOK, urls)
 }
 
 func DownloadGallery(c *gin.Context) {
 	var body record.Record
 
 	if err := c.BindJSON(&body); err != nil {
-		c.JSON(400, gin.H{
+		c.JSON(http.StatusBadRequest, gin.H{
 			"message": "Invalid request body",
 		})
 		return
@@ -40,12 +41,12 @@ func DownloadGallery(c *gin.Context) {
 
 	err := actions.DownloadGallery(body)
 	if err != nil {
-		c.JSON(400, gin.H{
+		c.JSON(http.StatusBadRequest, gin.H{
 			"message": "Failed to download gallery",
 			"details": err,
 		})
 		return
 	}
 
-	c.Writer.WriteHeader(200)
+	c.Writer.WriteHeader(http.StatusOK)
 }

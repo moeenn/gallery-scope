@@ -31,7 +31,7 @@ func TestRecordNormalize(t *testing.T) {
 	}
 
 	for _, testCase := range testCases {
-		testCase.Input.Normalize()
+		testCase.Input.normalize()
 
 		if !isSame(testCase.Input, testCase.Output) {
 			t.Errorf("Failed:: Expected: %v Got: %v", testCase.Output, testCase.Input)
@@ -46,7 +46,7 @@ func TestRecordProcess(t *testing.T) {
 	}{
 		{
 			Input: Record{
-				Base:  "https://www.google.com/12345/img_{n}",
+				Base:  "https://www.google.com/12345/img_{}",
 				Start: 1,
 				End:   4,
 			},
@@ -59,7 +59,7 @@ func TestRecordProcess(t *testing.T) {
 		},
 		{
 			Input: Record{
-				Base: "https://www.google.com/12345/img_{n}",
+				Base: "https://www.google.com/12345/img_{}",
 				End:  3,
 				Zero: 3,
 			},
