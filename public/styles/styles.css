@@ -1,7 +1,8 @@
 #layout {
-  height: 100%;
-  width: 100%;
-  grid-template-rows: 8.5rem auto;
+  --inputs-height:  5.5rem;
+  height: 100vh;
+  width: 100vw;
+  grid-template-rows: var(--inputs-height) auto;
   grid-template-columns: 1fr;
   grid-template-areas: 
     "inputs"
@@ -15,12 +16,12 @@
 #layout #images {
   grid-area: images;
   overflow-y: auto;
+  height: calc(100vh - var(--inputs-height));
   background-color: hsla(var(--bg-dull), 0.7);
 }
 
 #images img {
   border-radius: var(--border-radius);
-  height: calc(var(--space) * 10);
   width: 100%;
   object-fit: cover;
   box-shadow: var(--shadow-sm);
@@ -30,8 +31,13 @@
   padding-bottom: calc(var(--space) / 2);
 }
 
+.secondary-inputs {
+  padding: 0 1rem;
+}
+
 .secondary-inputs input {
-  width: 5rem;
+  width: 4rem;
+  height: 100%;
 }
 
 #actions {
@@ -52,9 +58,10 @@ button:hover {
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  display: flex;
+  flex-direction: row;
   gap: var(--space);
+  height:  calc(100vh - var(--inputs-height));
 }
 
 .gallery a {

@@ -75,7 +75,12 @@ const form = {
 
     thumbs.clear()
 
-    for (const img of data) {
+    const selective = [
+      data[0],
+      data[data.length -1],
+    ]
+
+    for (const img of selective) {
       const thumb = thumbs.createThumb(img)
       thumbs.insertThumbnail(thumb)
     }

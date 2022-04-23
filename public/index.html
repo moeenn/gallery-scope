@@ -15,11 +15,9 @@
   <div id="layout" class="grid">
     <section id="inputs" class="border-b">
       <div class="container py-1">
-        <div class="pb-1/2">
-          <input name="base" type="text" placeholder="Base e.g. http://www.example.com/asbasbc/img_{}.jpg" class="w-full" />
-        </div>
+        <div class="pb-1/2 flex">
+          <input name="base" type="text" placeholder="Base e.g. http://www.example.com/asbasbc/img_{}.jpg" class="flex-1" />
 
-        <div class="flex justify-between">
           <div class="secondary-inputs">
             <input title="Start" name="start" type="number" min="0" placeholder="Start" value="1" />
             <input title="End" name="end" type="number" min="0" placeholder="End" value="12" />
@@ -56,6 +54,7 @@
             </button>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -71,8 +70,8 @@
 </body>
 
 <template id="thumbnail">
-  <a class="flex" href="" target="_blank">
-    <img src="" alt="thumb" />
+  <a class="flex-1 h-full" href="" target="_blank">
+    <img class="h-full" src="" alt="thumb" />
   </a>
 </template>
 
