@@ -36,7 +36,7 @@ func DownloadGallery(r record.Record) error {
 
 	for i, url := range urls {
 		go func(i int, slug string, url proxy.ProxyURL, r record.Record) {
-			path := fmt.Sprintf("./storage/%s_%s", slug, utils.ZeroPad(i+1, r.Zero))
+			path := fmt.Sprintf("./storage/%s_%s.jpg", slug, utils.ZeroPad(i+1, r.Zero))
 			utils.Download(url.Full, path)
 			fmt.Printf("[Complete] %v\n", url.Full)
 		}(i, slug, url, r)
